@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>工作报告性能优化 | 乘风破浪会有时</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css">
+    <script charset="utf-8" src="/js/custom.js"></script>
+    <meta name="description" content="路漫漫其修远兮 吾将上下而求索">
+    <meta name="keywords" content="dvsc developer,vuepress,自建博客,dv">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="robots" content="all">
+    <meta name="author" content="dvsc">
+    
+    <link rel="preload" href="/assets/css/0.styles.bfd62ff8.css" as="style"><link rel="preload" href="/assets/js/app.fbba6942.js" as="script"><link rel="preload" href="/assets/js/4.5c1b3a6f.js" as="script"><link rel="preload" href="/assets/js/1.dee12e52.js" as="script"><link rel="preload" href="/assets/js/9.addcb2d4.js" as="script"><link rel="preload" href="/assets/js/14.39e712f1.js" as="script"><link rel="prefetch" href="/assets/js/10.7cb23ded.js"><link rel="prefetch" href="/assets/js/11.3c0e6cff.js"><link rel="prefetch" href="/assets/js/12.9a98cc53.js"><link rel="prefetch" href="/assets/js/13.be2e261a.js"><link rel="prefetch" href="/assets/js/15.6f34a449.js"><link rel="prefetch" href="/assets/js/16.5a265be9.js"><link rel="prefetch" href="/assets/js/17.5e66ecff.js"><link rel="prefetch" href="/assets/js/18.295df760.js"><link rel="prefetch" href="/assets/js/19.9901ba74.js"><link rel="prefetch" href="/assets/js/20.850e9636.js"><link rel="prefetch" href="/assets/js/21.6366be06.js"><link rel="prefetch" href="/assets/js/22.35a889d2.js"><link rel="prefetch" href="/assets/js/5.21d8025e.js"><link rel="prefetch" href="/assets/js/6.04490967.js"><link rel="prefetch" href="/assets/js/7.d2977ab4.js"><link rel="prefetch" href="/assets/js/8.7985293c.js"><link rel="prefetch" href="/assets/js/vendors~flowchart.529f4ac8.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.bfd62ff8.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div><div class="theme-container" data-v-4698c43e><div data-v-4698c43e><div id="loader-wrapper" class="loading-wrapper" data-v-1c4f0192 data-v-4698c43e data-v-4698c43e><div class="loader-main" data-v-1c4f0192><div data-v-1c4f0192></div><div data-v-1c4f0192></div><div data-v-1c4f0192></div><div data-v-1c4f0192></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-6cbeab0a data-v-4698c43e data-v-4698c43e><h3 class="title" style="display:none;" data-v-6cbeab0a data-v-6cbeab0a>乘风破浪会有时</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-6cbeab0a data-v-6cbeab0a><input type="password" value="" data-v-6cbeab0a> <span data-v-6cbeab0a>Konck! Knock!</span> <button data-v-6cbeab0a>OK</button></label> <div class="footer" style="display:none;" data-v-6cbeab0a data-v-6cbeab0a><span data-v-6cbeab0a><i class="iconfont reco-theme" data-v-6cbeab0a></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-6cbeab0a>vuePress-theme-reco</a></span> <span data-v-6cbeab0a><i class="iconfont reco-copyright" data-v-6cbeab0a></i> <a data-v-6cbeab0a><span data-v-6cbeab0a>z利威</span>
+            
+          <span data-v-6cbeab0a>2018 - </span>
+          2023
+        </a></span></div></div> <div class="hide" data-v-4698c43e><header class="navbar" data-v-4698c43e><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">乘风破浪会有时</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/guide/" class="nav-link"><i class="iconfont reco-eye"></i>
+  本站指南
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-api"></i>
+      技术分享
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Java</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/技术文章/java/javase.html" class="nav-link"><i class="iconfont undefined"></i>
+  JavaSE
+</a></li><li class="dropdown-subitem"><a href="/技术文章/java高级/javaee.html" class="nav-link"><i class="iconfont undefined"></i>
+  JavaEE
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-faq"></i>
+      生活分享
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/生活分享/life.html" class="nav-link"><i class="iconfont undefined"></i>
+  生活分享
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-work"></i>
+      工作随笔
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/工作随笔/drools.html" class="nav-link"><i class="iconfont undefined"></i>
+  Drools 规则引擎
+</a></li><li class="dropdown-item"><!----> <a href="/工作随笔/ChatGPT_Bito.html" class="nav-link"><i class="iconfont undefined"></i>
+  ChatGPT4 Bito- IDEA  辅助编程案例
+</a></li><li class="dropdown-item"><!----> <a href="/工作随笔/workreport.html" class="nav-link"><i class="iconfont undefined"></i>
+  工作报告性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/工作随笔/SPI.html" class="nav-link"><i class="iconfont undefined"></i>
+  Java SPI机制和spring中运用
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-blog"></i>
+      博客
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.jianshu.com/u/a2f1fd06b158" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-blog"></i>
+  腾讯
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://www.jianshu.com/u/a2f1fd06b158" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-bilibili"></i>
+  简书
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://www.jianshu.com/u/a2f1fd06b158" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-blog"></i>
+  z利威
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-4698c43e></div> <aside class="sidebar" data-v-4698c43e><div class="personal-info-wrapper" data-v-6c8ffc9c><img src="/tx.jpg" alt="author-avatar" class="personal-img" data-v-6c8ffc9c> <h3 class="name" data-v-6c8ffc9c>
+    z利威
+  </h3> <div class="num" data-v-6c8ffc9c><div data-v-6c8ffc9c><h3 data-v-6c8ffc9c>9</h3> <h6 data-v-6c8ffc9c>文章</h6></div> <div data-v-6c8ffc9c><h3 data-v-6c8ffc9c>15</h3> <h6 data-v-6c8ffc9c>标签</h6></div></div> <hr data-v-6c8ffc9c></div> <nav class="nav-links"><div class="nav-item"><a href="/guide/" class="nav-link"><i class="iconfont reco-eye"></i>
+  本站指南
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-api"></i>
+      技术分享
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Java</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/技术文章/java/javase.html" class="nav-link"><i class="iconfont undefined"></i>
+  JavaSE
+</a></li><li class="dropdown-subitem"><a href="/技术文章/java高级/javaee.html" class="nav-link"><i class="iconfont undefined"></i>
+  JavaEE
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-faq"></i>
+      生活分享
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/生活分享/life.html" class="nav-link"><i class="iconfont undefined"></i>
+  生活分享
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-work"></i>
+      工作随笔
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/工作随笔/drools.html" class="nav-link"><i class="iconfont undefined"></i>
+  Drools 规则引擎
+</a></li><li class="dropdown-item"><!----> <a href="/工作随笔/ChatGPT_Bito.html" class="nav-link"><i class="iconfont undefined"></i>
+  ChatGPT4 Bito- IDEA  辅助编程案例
+</a></li><li class="dropdown-item"><!----> <a href="/工作随笔/workreport.html" class="nav-link"><i class="iconfont undefined"></i>
+  工作报告性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/工作随笔/SPI.html" class="nav-link"><i class="iconfont undefined"></i>
+  Java SPI机制和spring中运用
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-blog"></i>
+      博客
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.jianshu.com/u/a2f1fd06b158" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-blog"></i>
+  腾讯
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://www.jianshu.com/u/a2f1fd06b158" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-bilibili"></i>
+  简书
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://www.jianshu.com/u/a2f1fd06b158" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-blog"></i>
+  z利威
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>工作随笔</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/工作随笔/ChatGPT_Bito.html" class="sidebar-link">ChatGPT4 Bito- IDEA  辅助编程案例</a></li><li><a href="/工作随笔/SPI.html" class="sidebar-link">Java SPI机制和spring中运用</a></li><li><a href="/工作随笔/drools.html" class="sidebar-link">Drools 规则引擎</a></li><li><a href="/工作随笔/workReport.html" class="active sidebar-link">工作报告性能优化</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/工作随笔/workReport.html#一、慢sql分析" class="sidebar-link">一、慢SQL分析</a></li><li class="sidebar-sub-header"><a href="/工作随笔/workReport.html#二、慢sql-解决方案" class="sidebar-link">二、慢SQL 解决方案</a></li><li class="sidebar-sub-header"><a href="/工作随笔/workReport.html#三、-其他一些思考" class="sidebar-link">三、 其他一些思考</a></li></ul></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-6cbeab0a data-v-4698c43e><h3 class="title" style="display:none;" data-v-6cbeab0a data-v-6cbeab0a>工作报告性能优化</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-6cbeab0a data-v-6cbeab0a><input type="password" value="" data-v-6cbeab0a> <span data-v-6cbeab0a>Konck! Knock!</span> <button data-v-6cbeab0a>OK</button></label> <div class="footer" style="display:none;" data-v-6cbeab0a data-v-6cbeab0a><span data-v-6cbeab0a><i class="iconfont reco-theme" data-v-6cbeab0a></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-6cbeab0a>vuePress-theme-reco</a></span> <span data-v-6cbeab0a><i class="iconfont reco-copyright" data-v-6cbeab0a></i> <a data-v-6cbeab0a><span data-v-6cbeab0a>z利威</span>
+            
+          <span data-v-6cbeab0a>2018 - </span>
+          2023
+        </a></span></div></div> <div data-v-4698c43e><main class="page"><!----> <div class="page-title" style="display:none;"><h1>工作报告性能优化</h1> <hr> <div data-v-484a899e><i class="iconfont reco-account" data-v-484a899e><span data-v-484a899e>z利威</span></i> <i class="iconfont reco-date" data-v-484a899e><span data-v-484a899e>2023-04-13</span></i> <!----> <i class="iconfont reco-tag tags" data-v-484a899e><span class="tag-item" data-v-484a899e>
+      性能优化
+    </span><span class="tag-item" data-v-484a899e>
+      随笔
+    </span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><div class="custom-block tip"><p class="custom-block-title">概要</p> <p>工作报告模块，经常性Mysql 慢日志告警，分析工作报告业务，并根据现有的表进行SQL 优化。</p></div> <h2 id="一、慢sql分析"><a href="#一、慢sql分析" class="header-anchor">#</a> 一、慢SQL分析</h2> <h3 id="_1-1-当前慢sql"><a href="#_1-1-当前慢sql" class="header-anchor">#</a> 1.1 当前慢SQL</h3> <p><strong>现状慢SQL: t_work_report_record和t_work_report_receive连表扫描行数远超notice查询, 通知查询容易受影响。观察告警日志，慢SQL 查询围绕 ：1. 工作报告通知 2.工作报告查询两个模块</strong></p> <p>截止到<strong>2023-04-11</strong>所有的慢查询：tapd : https://www.tapd.cn/20013741/prong/stories/view/1120013741001095865</p> <div class="language-Mysql line-numbers-mode"><pre class="language-text"><code>-- 慢查询----------------------------------工作报告通知--------------------------------------------------------------
+【生产环境】【mysql慢日志 或 SQL没有使用索引】【查看个人消息通知（查询过去180天,type =3）】
+ /*app=crm-work-report*/
+SELECT
+    count(*)
+FROM
+    d_ec_crmextend
+    .
+    t_work_report_notice
+WHERE
+    f_corp_id = 7416431
+    AND (f_user_id = 8352852 )
+    AND f_type = 3
+    AND f_create_time &gt; '2022-09-30 19:21:04'
+ 
+mysql实例名 = cdb-crm7
+数据库名 = d_ec_crm
+查询时间 = 2.236175 秒
+记录锁定时间 = 2.1E-5 秒
+读取行数 = 24912
+MD5 = 0DA94DB20A517A51
+ 
+【生产环境】【mysql慢日志 或 SQL没有使用索引】【工作报告首页汇总(固定汇报对象自定义才展示且汇报对象包含当前userId)workreport/list/summary  查询通知type = 7的汇总消息】
+ /*app=crm-work-report*/
+SELECT
+    f_id
+    AS id,
+    f_content AS content,
+    f_template_id AS templateId,
+    f_create_time AS createTime
+FROM
+    d_ec_crmextend
+    .
+    t_work_report_notice
+WHERE
+    f_corp_id = 7416431
+    AND f_user_id = 8352852
+    AND f_type = 7
+    AND f_create_time BETWEEN '2023-04-03 20:06:18' AND '2023-04-10 20:06:18'
+    and f_notice_type = 0
+ 
+mysql实例名 = cdb-crm7
+数据库名 = d_ec_crm
+查询时间 = 2.120368 秒
+     
+         
+【生产环境】【mysql慢日志 或 SQL没有使用索引】【提醒列表：当前用户提醒总数-ios端用到（安卓端、桌面端、pc端未使用）,可能不需要该count】
+select
+    count(*)
+from
+    d_ec_crmextend
+    .
+    t_work_report_notice
+where
+    f_corp_id = 7416431
+    and f_user_id = 8352852
+    and f_notice_type = 0
+mysql实例名 = cdb-crm7
+数据库名 = d_ec_crm
+查询时间 = 2.091448 秒
+记录锁定时间 = 1.7E-5 秒
+读取行数 = 24930
+MD5 = DD1ABC1656C9C674
+ 
+     
+-- 慢查询----------------------------------工作报告查询---------------------------------------  
+【生产环境】【mysql慢日志 或 SQL没有使用索引】【tab页 我收到的报告总数】
+SELECT
+    count(distinct r.f_report_id)
+FROM
+    d_ec_crmextend.t_work_report_record AS r
+LEFT JOIN d_ec_crmextend.t_work_report_receive AS
+    e
+    ON
+    r.f_report_id = e.f_report_id
+WHERE
+    r.f_corp_id = 7416431
+    AND e.f_corp_id = 7416431
+    AND e.f_receive_user_id IN
+         (8352852)
+    AND r.f_create_time &gt;= '2023-03-15 00:00:00'
+    AND r.f_create_time &lt;= '2023-03-15 23:59:59'
+ 
+mysql实例名 = cdb-crm7
+数据库名 = d_ec_crm
+查询时间 = 2.217934 秒
+记录锁定时间 = 2.5E-5 秒
+读取行数 = 64840
+MD5 = C4D5D4A8BA9D3164
+ 
+ 
+ 
+【生产环境】【mysql慢日志 或 SQL没有使用索引】【tab页 我收到的报告记录】
+ /*app=crm-work-report*/
+SELECT
+    r.f_report_id AS reportId,
+    r.f_corp_id AS corpId,
+    r.f_user_id AS userId,
+    r.f_type AS
+    type,
+    r.f_template_id AS templateId,
+    r.f_template_title AS templateTitle,
+    r.f_attach_num AS attachNum,
+    r.f_comment_num AS commentNum,
+    r.f_create_time AS
+    createTime,
+    r.f_update_time AS updateTime,
+    e.f_is_read AS isRead
+FROM
+    d_ec_crmextend.t_work_report_record AS r
+LEFT JOIN d_ec_crmextend.t_work_report_receive AS
+    e
+    ON
+    r.f_report_id = e.f_report_id
+WHERE
+    r.f_corp_id = 7416431
+    AND e.f_corp_id = 7416431
+    AND e.f_receive_user_id IN
+         (8352852)
+GROUP BY
+    r.f_report_id
+ORDER BY
+    r.f_create_time DESC
+LIMIT 0,
+50
+ 
+mysql实例名 = cdb-crm7
+数据库名 = d_ec_crm
+查询时间 = 2.069463 秒
+记录锁定时间 = 1.9E-5 秒
+读取行数 = 419883
+MD5 = 479AEB349F5BF9F8
+ 
+ 
+【生产环境】【mysql慢日志 或 SQL没有使用索引】【pc端查看模板所有提交报告总数
+SELECT
+    count(distinct r.f_report_id)
+FROM
+    d_ec_crmextend.t_work_report_record AS r
+LEFT JOIN d_ec_crmextend.t_work_report_receive AS
+    e
+    ON
+    r.f_report_id = e.f_report_id
+WHERE
+    r.f_corp_id = 12219010
+    AND e.f_corp_id = 12219010
+    AND r.f_template_id = 549
+ 
+mysql实例名 = cdb-crm2
+数据库名 = d_ec_crm
+查询时间 = 4.672249 秒
+记录锁定时间 = 1.8E-5 秒
+读取行数 = 209500
+MD5 = 444A88A0291F9885
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br><span class="line-number">138</span><br><span class="line-number">139</span><br><span class="line-number">140</span><br><span class="line-number">141</span><br><span class="line-number">142</span><br><span class="line-number">143</span><br><span class="line-number">144</span><br><span class="line-number">145</span><br><span class="line-number">146</span><br><span class="line-number">147</span><br><span class="line-number">148</span><br><span class="line-number">149</span><br><span class="line-number">150</span><br><span class="line-number">151</span><br><span class="line-number">152</span><br><span class="line-number">153</span><br><span class="line-number">154</span><br></div></div><h3 id="_1-2-监控数据"><a href="#_1-2-监控数据" class="header-anchor">#</a> 1.2 监控数据</h3> <p><img src="/assets/img/image-20230331220454586-1692265484651.bffd1b5f.png" alt="image-20230331220454586"></p> <p><img src="/assets/img/image2023-4-4_14-13-47.21e97c4a.png" alt="image2023-4-4_14-13-47"></p> <p><img src="/assets/img/image2023-4-4_14-11-9.abb29c3f.png" alt="image2023-4-4_14-11-9"></p> <h3 id="_1-3-分析"><a href="#_1-3-分析" class="header-anchor">#</a> 1.3 分析</h3> <p>​        监控数据：查看慢SQL 出现的时间 innoDB IO 读写次数有明显的突刺现象，IO读写量慢查询为 66Mb/s， IO读写次数达4052次/s， IO负载很高。除去cpu计算的10ms-20ms和其他业务平均IO次数等，结合查询总耗时估算出IO一次是1ms左右（还包含了其他操作的耗时，写内存也有一定耗时，操作bufferpool也有一定耗时，总体来说一次io是1ms内）, 所以结合工作报告的业务降低IO读写次数是优化的一个大方向。</p> <h2 id="二、慢sql-解决方案"><a href="#二、慢sql-解决方案" class="header-anchor">#</a> 二、慢SQL 解决方案</h2> <h3 id="_1-pv-app-我提交的"><a href="#_1-pv-app-我提交的" class="header-anchor">#</a> 1 PV/APP 我提交的</h3> <h4 id="_1-1-慢sql"><a href="#_1-1-慢sql" class="header-anchor">#</a> 1.1 慢SQL</h4> <div class="language-mysql line-numbers-mode"><pre class="language-text"><code>EXPLAIN
+SELECT
+count(distinct r.f_report_id)
+FROM
+d_ec_crmextend.t_work_report_record AS r
+LEFT JOIN
+d_ec_crmextend.t_work_report_receive AS e ON r.f_report_id = e.f_report_id
+WHERE
+r.f_corp_id = 7416431
+AND e.f_corp_id = 7416431
+AND r.f_user_id IN (8352852)
+-- 时间可选 模板id可选
+-- AND r.f_template_id = #{templateId}
+-- AND r.f_create_time &gt;= '2023-03-01 00:00:00'
+-- AND r.f_create_time &lt;= '2023-03-31 23:59:59'
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><div class="language-mysql line-numbers-mode"><pre class="language-text"><code>EXPLAIN
+SELECT
+    r.f_report_id AS reportId,
+    r.f_corp_id AS corpId,
+    r.f_user_id AS userId,
+    r.f_type AS type,
+    r.f_template_id AS templateId,
+    r.f_template_title AS templateTitle,
+    r.f_attach_num AS attachNum,
+    r.f_comment_num AS commentNum,
+    r.f_create_time AS createTime,
+    r.f_update_time AS updateTime,
+    e.f_is_read AS isRead
+FROM
+    d_ec_crmextend.t_work_report_record AS r
+LEFT JOIN
+        d_ec_crmextend.t_work_report_receive AS e 
+            ON
+    r.f_report_id = e.f_report_id
+WHERE
+    r.f_corp_id = 7416431
+    AND e.f_corp_id = 7416431
+    AND r.f_user_id IN (8352852)
+    --  时间可选 模板id可选
+    -- AND r.f_template_id = #{templateId}
+    -- AND r.f_create_time &gt;= '2023-03-01 00:00:00'
+    -- AND r.f_create_time &lt;= '2023-03-31 23:59:59'
+GROUP BY
+    r.f_report_id
+ORDER BY
+    r.f_create_time DESC
+LIMIT 0,50;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br></div></div><p>查看explain结果：连表查询且 <strong>采用Using temporary：使用了临时表保存中间结果，性能特别差，需要重点优化，而且还使用了Using filesort 额外的文件排序</strong></p> <p><img src="/assets/img/image2023-4-10_10-54-5.ad30c73c.png" alt="image2023-4-10_10-54-5"></p> <h4 id="_1-2-优化建议"><a href="#_1-2-优化建议" class="header-anchor">#</a> 1.2 优化建议</h4> <p>​      查询报告列表去除is_read(因为这个is_read 没有使用到且gropy by取出来的is_read不准) 和连表，而且查询的总数中并不需要连表查询，所以可以单独拆开。 查询我提交的工作报告页面中采用了分页，因为用户90%以上都是查询第一页，所以暂时还未处理深分页的问题。此处筛选时间(排序)是比较高频的操作，虽templateId 区分度 并不是很高，但如果加入corp_user_time_idx(<code>f_corp_id</code>,<code>f_user_id</code>,<code>f_create_time</code>) 索引，回和单独的templateId 组成index_merge 即 Using intersect(idx_corp_user,idx_template);</p> <p>可以在表t_work_report_record增加一个时间的联合索引 即corp_user_time_template_idx(<code>f_corp_id</code>,<code>f_user_id</code>,<code>f_create_time</code>，<code>f_template_id</code>)</p> <div class="language-mysql line-numbers-mode"><pre class="language-text"><code>EXPLAIN
+ SELECT
+    count(r.f_report_id)
+FROM
+    d_ec_crmextend.t_work_report_record AS r
+where
+    r.f_corp_id = 7416431
+    AND r.f_user_id = '8352852'
+    --  时间可选 模板id可选
+    -- AND r.f_template_id = #{templateId}
+    -- AND r.f_create_time &gt;= '2023-03-01 00:00:00'
+    -- AND r.f_create_time &lt;= '2023-03-31 23:59:59'
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><div class="language-mysql line-numbers-mode"><pre class="language-text"><code>EXPLAIN
+SELECT
+    r.f_report_id AS reportId,
+    r.f_corp_id AS corpId,
+    r.f_user_id AS userId,
+    r.f_type AS type,
+    r.f_template_id AS templateId,
+    r.f_template_title AS templateTitle,
+    r.f_attach_num AS attachNum,
+    r.f_comment_num AS commentNum,
+    r.f_create_time AS createTime,
+    r.f_update_time AS updateTime
+FROM
+    d_ec_crmextend.t_work_report_record AS r
+WHERE
+    r.f_corp_id = 7416431
+    AND r.f_user_id = 8352852
+    --  时间可选 模板id可选
+    -- AND r.f_template_id = #{templateId}
+    -- AND r.f_create_time &gt;= '2023-03-01 00:00:00'
+    -- AND r.f_create_time &lt;= '2023-03-31 23:59:59'
+ORDER BY
+    r.f_create_time DESC
+LIMIT 0,50;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div><p>当带上templateId：则产生了索引合并现象type: index_merge，Using intersect(idx_corp_user,idx_template); Using where; Using filesort，索引合并templateId 索引树过滤性比较差，一样需要很多磁盘IO, 意味着我们的索引建立得不太合理 ， 查看当前templateId 字段作为单独的索引。</p> <p>小总结：改造主要是围绕连表改单表二次查询方向，且增加时间(<strong>考虑可以增加corpId_userId_createTime_templateId</strong>)作为联合索引。</p> <h3 id="_2-tab页我收到的"><a href="#_2-tab页我收到的" class="header-anchor">#</a> 2 tab页我收到的</h3> <h4 id="_1-1-慢sql-2"><a href="#_1-1-慢sql-2" class="header-anchor">#</a> 1.1 慢SQL</h4> <div class="language-mysql line-numbers-mode"><pre class="language-text"><code>EXPLAIN
+SELECT
+    count(distinct r.f_report_id)
+FROM
+    d_ec_crmextend.t_work_report_record AS r
+LEFT JOIN
+        d_ec_crmextend.t_work_report_receive AS e 
+            ON
+    r.f_report_id = e.f_report_id
+WHERE
+    r.f_corp_id = 7416431
+    AND e.f_corp_id = 7416431
+    -- AND r.f_user_id IN (- 8352852 -) 
+    AND e.f_receive_user_id IN (8352852)
+    AND r.f_create_time &gt;= '2023-03-27 00:00:00'
+    AND r.f_create_time &lt;= '2023-04-03 23:59:59';
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><div class="language-mysql line-numbers-mode"><pre class="language-text"><code>EXPLAIN
+SELECT
+    r.f_report_id AS reportId,
+    r.f_corp_id AS corpId,
+    r.f_user_id AS userId,
+    r.f_type AS type,
+    r.f_template_id AS templateId,
+    r.f_template_title AS templateTitle,
+    r.f_attach_num AS attachNum,
+    r.f_comment_num AS commentNum,
+    r.f_create_time AS createTime,
+    r.f_update_time AS updateTime,
+    e.f_is_read AS isRead
+FROM
+    d_ec_crmextend.t_work_report_record AS r
+LEFT JOIN
+        d_ec_crmextend.t_work_report_receive AS e 
+            ON
+    r.f_report_id = e.f_report_id
+WHERE
+    r.f_corp_id = 7416431
+    AND e.f_corp_id = 7416431
+    AND e.f_receive_user_id IN (8352852)
+    AND r.f_create_time &gt;= '2023-03-02 00:00:00'
+    AND r.f_create_time &lt;= '2023-04-03 23:59:59'
+GROUP BY
+    r.f_report_id
+ORDER BY
+    r.f_create_time DESC
+LIMIT 0,50;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br></div></div><p><img src="/assets/img/image2023-4-10_16-41-17.a29e66b3.png" alt="image2023-4-10_16-41-17"></p> <h4 id="_1-2-优化建议-2"><a href="#_1-2-优化建议-2" class="header-anchor">#</a> 1.2 优化建议</h4> <p>查询报告列表使用了连表，而且查询的总数中并不需要连表查询，所以可以单独拆开。可以改成单独对<strong>t_work_report_receive</strong>表进行查询，其他分析和我提交的tab页类似，此处筛选时间(排序)是比较高频的操作 ， <strong>可以在表t_work_report_receive增加一个时间的联合索引 即corp_user_time_idx(<code>f_corp_id</code>,<code>f_receive_user_id</code>,<code>f_create_time</code>)</strong>。</p> <div class="language-mysql line-numbers-mode"><pre class="language-text"><code>EXPLAIN
+SELECT
+        count(r.f_report_id) 
+    FROM
+        d_ec_crmextend.t_work_report_receive AS r 
+    WHERE
+        r.f_corp_id = 7416431 
+        -- AND r.f_user_id IN (- 8352852 -) 
+        AND r.f_receive_user_id = '8352852'
+        AND r.f_create_time &gt;= '2023-03-27 00:00:00' 
+        AND r.f_create_time &lt;= '2023-04-03 23:59:59';
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><div class="language-mysql line-numbers-mode"><pre class="language-text"><code>-- 第一条查询我收到的报告id
+EXPLAIN
+SELECT
+    e.f_report_id AS reportId,
+    e.f_is_read AS isRead
+FROM d_ec_crmextend.t_work_report_receive AS e    
+WHERE
+     e.f_corp_id = 7416431
+    AND e.f_receive_user_id = 8352852
+    AND e.f_create_time &gt;= '2023-03-02 00:00:00'
+    AND e.f_create_time &lt;= '2023-04-03 23:59:59'
+ORDER BY
+    e.f_create_time DESC
+LIMIT 0,50;
+ 
+ 
+-- 第二条报告详情
+SELECT
+    r.f_report_id AS reportId,
+    r.f_corp_id AS corpId,
+    r.f_user_id AS userId,
+    r.f_type AS type,
+    r.f_template_id AS templateId,
+    r.f_template_title AS templateTitle,
+    r.f_attach_num AS attachNum,
+    r.f_comment_num AS commentNum,
+    r.f_create_time AS createTime,
+    r.f_update_time AS updateTime
+FROM
+    d_ec_crmextend.t_work_report_record AS r
+where
+    `f_report_id` in (
+    2255141, 2255095, 2255080, 2255048,2254978,2254951,2254945,2254835,2254884,
+    2254823, 2254873,2254857,2254856,2254808,2254803,2254801,2254850,2254798,
+    2254842,2254738,2254734,2254778,2254777,2254725,2254774,2254765,2254752,
+    2254749,2254636,2254688,2254618,2254615,2254597,2254591,2254587,2254580,
+    2254538,2254523,2254560,2254519,2254515,2254513,2254509,2254549,2254438,
+    2254436,2254432,2254416,2254413,2254474
+  )
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br></div></div><h3 id="_3-首页-统计"><a href="#_3-首页-统计" class="header-anchor">#</a> 3  首页-统计</h3> <h4 id="_1-1-慢sql-3"><a href="#_1-1-慢sql-3" class="header-anchor">#</a> 1.1 慢SQL</h4> <div class="language-mysql line-numbers-mode"><pre class="language-text"><code>-- 首页最近工作报告：未读
+EXPLAIN
+SELECT
+    r.f_report_id AS reportId,
+    r.f_corp_id AS corpId,
+    r.f_user_id AS userId,
+    r.f_type AS type,
+    r.f_template_id AS templateId,
+    r.f_template_title AS templateTitle,
+    r.f_attach_num AS attachNum,
+    r.f_comment_num AS commentNum,
+    r.f_create_time AS createTime,
+    r.f_update_time AS updateTime,
+    e.f_is_read AS isRead
+FROM
+    d_ec_crmextend.t_work_report_record AS r
+LEFT JOIN
+        d_ec_crmextend.t_work_report_receive AS e 
+            ON
+    r.f_report_id = e.f_report_id
+WHERE
+    r.f_corp_id = 7416431
+    AND e.f_corp_id = 7416431
+    AND e.f_is_read = 0
+    AND e.f_receive_user_id IN (8352852)
+GROUP BY
+    r.f_report_id
+ORDER BY
+    r.f_create_time DESC
+LIMIT 0,50;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br></div></div><h4 id="_1-2-优化建议-3"><a href="#_1-2-优化建议-3" class="header-anchor">#</a> 1.2 优化建议</h4> <p>采用拆分方式</p> <div class="language-mysql line-numbers-mode"><pre class="language-text"><code>-- 第一条查询我收到的报告id -未读
+EXPLAIN
+SELECT
+    e.f_report_id AS reportId
+FROM d_ec_crmextend.t_work_report_receive AS e    
+WHERE
+     e.f_corp_id = 7416431
+    AND e.f_receive_user_id = 8352852
+    AND e.f_is_read = 0
+ORDER BY
+    e.f_create_time DESC
+LIMIT 0,50;
+ 
+ 
+-- 第二条报告详情
+SELECT
+    r.f_report_id AS reportId,
+    r.f_corp_id AS corpId,
+    r.f_user_id AS userId,
+    r.f_type AS type,
+    r.f_template_id AS templateId,
+    r.f_template_title AS templateTitle,
+    r.f_attach_num AS attachNum,
+    r.f_comment_num AS commentNum,
+    r.f_create_time AS createTime,
+    r.f_update_time AS updateTime
+FROM
+    d_ec_crmextend.t_work_report_record AS r
+where
+    `f_report_id` in (
+    2255141, 2255095, 2255080, 2255048,2254978,2254951,2254945,2254835,2254884,
+    2254823, 2254873,2254857,2254856,2254808,2254803,2254801,2254850,2254798,
+    2254842,2254738,2254734,2254778,2254777,2254725,2254774,2254765,2254752,
+    2254749,2254636,2254688,2254618,2254615,2254597,2254591,2254587,2254580,
+    2254538,2254523,2254560,2254519,2254515,2254513,2254509,2254549,2254438,
+    2254436,2254432,2254416,2254413,2254474
+  )
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br></div></div><h3 id="_4-pc端根据模板查询工作报告"><a href="#_4-pc端根据模板查询工作报告" class="header-anchor">#</a> 4  PC端根据模板查询工作报告</h3> <h4 id="_1-1-慢sql-4"><a href="#_1-1-慢sql-4" class="header-anchor">#</a> 1.1 慢SQL</h4> <div class="language-mysql line-numbers-mode"><pre class="language-text"><code>EXPLAIN
+SELECT
+  count(distinct r.f_report_id)
+FROM
+  d_ec_crmextend.t_work_report_record AS r
+  LEFT JOIN d_ec_crmextend.t_work_report_receive AS e ON r.f_report_id = e.f_report_id
+WHERE
+  r.f_corp_id = 7416431
+  AND e.f_corp_id = 7416431
+  AND r.f_template_id = 409                    
+-- AND e.f_is_read = 0                        
+-- AND r.f_user_id IN          ()                         
+-- AND e.f_receive_user_id IN          ()                         
+-- AND r.f_create_time &gt;=                         
+-- AND r.f_create_time  &lt;=
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><div class="language-mysql line-numbers-mode"><pre class="language-text"><code>SELECT
+  r.f_report_id AS reportId,
+  r.f_corp_id AS corpId,
+  r.f_user_id AS userId,
+  r.f_type AS type,
+  r.f_template_id AS templateId,
+  r.f_template_title AS templateTitle,
+  r.f_attach_num AS attachNum,
+  r.f_comment_num AS commentNum,
+  r.f_create_time AS createTime,
+  r.f_update_time AS updateTime,
+  e.f_is_read AS isRead,
+  r.f_content AS content
+FROM
+  d_ec_crmextend.t_work_report_record AS r
+  LEFT JOIN d_ec_crmextend.t_work_report_receive AS e ON r.f_report_id = e.f_report_id
+WHERE
+  r.f_corp_id = 7416431
+  AND e.f_corp_id = 7416431
+  AND r.f_template_id = 409
+  -- AND e.f_is_read = 0                        
+  -- AND r.f_user_id IN          ()                         
+  -- AND e.f_receive_user_id IN          ()                         
+  -- AND r.f_create_time &gt;=                         
+  -- AND r.f_create_time  &lt;=                        
+GROUP BY
+  r.f_report_id
+ORDER BY
+  r.f_create_time DESC
+LIMIT
+  0, 20
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br></div></div><h4 id="_1-2-优化建议-4"><a href="#_1-2-优化建议-4" class="header-anchor">#</a> 1.2 优化建议</h4> <div class="language-mysql line-numbers-mode"><pre class="language-text"><code>EXPLAIN
+SELECT
+        count(distinct r.f_report_id)
+    FROM
+        d_ec_crmextend.t_work_report_receive AS r
+    WHERE
+        r.f_corp_id = 7416431
+        AND r.f_template_id = 409 
+        -- AND r.f_user_id IN (- 8352852 -) 
+        -- AND r.f_receive_user_id = '8352852'
+        --  AND r.f_create_time &gt;= '2023-03-27 00:00:00' 
+        -- AND r.f_create_time &lt;= '2023-04-03 23:59:59';
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><div class="language- line-numbers-mode"><pre class="language-text"><code>EXPLAIN
+SELECT
+   -- 未带user_id此处有可能重复，所以需要加上distinct
+    DISTINCT(e.`f_report_id`)  reportId
+FROM d_ec_crmextend.t_work_report_receive AS e    
+WHERE
+     e.f_corp_id = 7416431
+    AND e.f_template_id = 409
+ 
+ORDER BY
+    e.f_create_time DESC
+LIMIT 0,20;
+ 
+ 
+-- 第二条报告详情
+SELECT
+    r.f_report_id AS reportId,
+    r.f_corp_id AS corpId,
+    r.f_user_id AS userId,
+    r.f_type AS type,
+    r.f_template_id AS templateId,
+    r.f_template_title AS templateTitle,
+    r.f_attach_num AS attachNum,
+    r.f_comment_num AS commentNum,
+    r.f_create_time AS createTime,
+    r.f_update_time AS updateTime
+FROM
+    d_ec_crmextend.t_work_report_record AS r
+where
+    `f_report_id` in
+    (2255141,2255095,2255080,2255048,2254978,2254951,2254945,
+2254835,2254884,2254823,2254873,2254857,2254856,2254808,
+2254803,2254801,2254850,2254798,2254842,2254738)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br></div></div><p>执行结果：</p> <p><img src="/assets/img/image2023-4-3_14-49-30.a7d4ec47.png" alt="image2023-4-3_14-49-30"></p> <h3 id="_5-pv-app查看个人消息通知"><a href="#_5-pv-app查看个人消息通知" class="header-anchor">#</a> 5  pv/app查看个人消息通知</h3> <h4 id="_1-1-慢sql-5"><a href="#_1-1-慢sql-5" class="header-anchor">#</a> 1.1 慢SQL</h4> <div class="language-mysql line-numbers-mode"><pre class="language-text"><code>-- 提醒列表 需要查询总数total 消息类型 1 提醒 2 评论 3 工作报告提交 4 报告汇总
+EXPLAIN
+SELECT
+  count(*)
+FROM
+  d_ec_crmextend.t_work_report_notice
+WHERE
+  f_corp_id = 7416431
+  AND f_user_id = 8352852
+  AND f_type = 3
+  AND f_create_time &gt; '2022-10-05 15:08:57';
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p><strong>但是查看慢SQL 出现的时间 innoDB IO 读写次数有明显的突刺现象，IO读写量两次慢查询分别为 41Mb/s 和 53Mb/s ， IO读写次数达2559次/s 和 3258次/s ， IO已经负载很高。</strong></p> <p><img src="/assets/img/image2023-4-3_16-55-24.1fdf4a0a.png" alt="image2023-4-3_16-55-24"></p> <p><strong>查看mysql 页内存：</strong></p> <p><img src="/assets/img/image2023-4-11_18-3-38.b44a4050.png" alt="image2023-4-11_18-3-38"></p> <p><strong>分析：</strong></p> <p>1.数据库的性能瓶颈 出现在磁盘IO， 所以这条SQL 需要频繁的把数据loading 到内存然后进行对比 ， 查看下生产数据库中相应的平均占用500B ,</p> <p>但 crm7 实例中慢查询企业：f_corp_id=7416431 中平均数达到1.2K 左右 ， 一页16k ，16k/1.2K ≈ 13 ，查看上面那条慢SQL执行计划扫描行数46716，IO次数=46716/13≈3594次，和监控的IO读写次数基本符合， 查询IO一次1ms内但次数多，也就比较慢。</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>- 通知表t_work_report_notice综合占用内存
+ 
+select
+    TABLE_ROWS,
+    concat(round(sum(DATA_LENGTH / 1024), 2), 'KB') as totalSize,
+    concat(round(sum(DATA_LENGTH / 1024), 2), 'KB')/ TABLE_ROWS as recordSize
+from
+    information_schema.TABLES
+where
+    table_schema = 'd_ec_crmextend'
+    and table_name = 't_work_report_notice';
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p><img src="/assets/img/image2023-4-3_18-15-18.80643006.png" alt="image2023-4-3_18-15-18"></p> <h4 id="_1-2-优化建议-5"><a href="#_1-2-优化建议-5" class="header-anchor">#</a> 1.2 优化建议</h4> <ol><li><p><strong>有限的资源的中，增加f_corp_id + f_user_id + f_create_time + f_type 覆盖索引， 按照区分度大小一次排序 ，减少IO次数 收益高</strong></p></li> <li><p>迁移<strong>f_conent,</strong> <strong>f_sale_data_value 两个大</strong>字段 ，平均会降低到 <strong>140B（预估值）</strong> 左右，所以可以考虑单独把占用大的字段<strong>f_conent,</strong> <strong>f_sale_data_value</strong> 移动到另一张表存储(<strong>已知当前看业务中不需要根据content/sale_value进行模糊查询</strong>)，增加一个外键（索引）值指向t_work_report_notice 表中的f_id</p></li> <li><p>业务考虑是否可以去除该total select count(*)计算</p></li></ol> <h4 id="_1-3-汇总sql"><a href="#_1-3-汇总sql" class="header-anchor">#</a> 1.3 汇总SQL</h4> <div class="language-mysql line-numbers-mode"><pre class="language-text"><code>-- 提醒列表 查询7天内汇总通知
+EXPLAIN
+SELECT
+  f_id AS id,
+  f_content AS content,
+  f_template_id AS templateId,
+  f_create_time AS createTime
+FROM
+  d_ec_crmextend.t_work_report_notice
+WHERE
+  f_corp_id = 7416431
+  AND f_user_id = 8352852
+  AND f_type = 7
+  AND f_create_time BETWEEN '2023-03-23 19:38:42' AND '2023-03-30 19:38:43'
+  and f_notice_type = 0;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p><strong>优化方案：</strong></p> <p>1.按照之前 联合索引 ****f_corp_id + f_user_id + **f_create_time +** f_type****，where 条件后面全走索引，根据id查询相应记录，当前业务job中汇总通知都是f_notice_type = 0的情况即系统消息，f_notice_type=1是我提交的报告情况，所以业务决定可以去掉该条件</p> <p>2.按照2.5.1 迁移<strong>f_conent,</strong> <strong>f_sale_data_value 两个大</strong>字段，一页获取更多的行，再通过f_id 查询到另一张表，即可通过索引查询</p> <p><strong>综合：针对IO读写次数高的的查询， 优先采用索引覆盖查询，即在表t_work_report_notice中</strong></p> <div class="language-mysql line-numbers-mode"><pre class="language-text"><code>-- 获取用户通知总数
+【生产环境】【mysql慢日志 或 SQL没有使用索引】【当前用户提醒总数-ios端用到（安卓端、桌面端、pc端未使用）,可能不需要该count】
+select
+    count(*)
+from
+    d_ec_crmextend
+    .
+    t_work_report_notice
+where
+    f_corp_id = 7416431
+    and f_user_id = 8352852
+    and f_notice_type = 0
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p><strong>优化方案：</strong></p> <ol><li><p>该业务是针对IOS 端的旧版本使用，app端一般不用分页，直接下列的模式，考虑业务降级去除select count(*) 统计</p></li> <li><p>按照之前 迁移<strong>f_conent,</strong> <strong>f_sale_data_value 两个大</strong>字段，一页获取更多的行，再通过f_id 查询到另一张表，即可通过索引查询。</p></li></ol> <h2 id="三、-其他一些思考"><a href="#三、-其他一些思考" class="header-anchor">#</a> <strong>三、 其他一些思考</strong></h2> <h3 id="_3-1-引入中间组件"><a href="#_3-1-引入中间组件" class="header-anchor">#</a> <strong>3.1 引入中间组件</strong></h3> <p>1.缓存redis 使用，但工作报告很多是根据当前时间去查询，缓存不可控，也就没命中率</p> <p>2.ES 工作报告的数据并不是像客户订单等要求非常严谨且响应很快的数据，ES 聚合需要汇报人和接收人一宽表，复杂度高，数据存储性价比非常低</p> <h3 id="_3-2-业务降级"><a href="#_3-2-业务降级" class="header-anchor">#</a> 3.2 业务降级</h3> <p>1.通知列表中最多只是把查询通知是180天的数据，是不是可以调整业务只查询最近一个月的数据，并把f_create_time、type 添加到联合索引中，提高查询速度。</p> <p>2.取消工作报告select count(*) 和 分页操作，采用查看更多拉取</p> <h3 id="_3-3-数据库表"><a href="#_3-3-数据库表" class="header-anchor">#</a> <strong>3.3 数据库表</strong></h3> <p>1.通知数据进行冷热分离，超过一定时间（假设一个月）的通知存放到新的备份表copy中， 根据业务需要，是否开启用户查看历史数据的按钮（也结合create_time），不过数据才240w ，还远不到这个地步。</p> <p>2.增加数据库配置，磁盘采用更好SSD 固态，提高读写能力, 已跟运维了解当前是本地SSD，性能已很不错</p></div> <footer class="page-edit" style="display:none;"><!----> <!----></footer> <!----> <!----></main> <!----> <div class="comments-wrapper" data-v-4698c43e><!----></div></div></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-44bd5a18 data-v-44bd5a18><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-44bd5a18><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-44bd5a18></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-44bd5a18></path></svg></div><!----><div></div><!----><div class="reco-bgm-panel" data-v-b1d3339e><audio id="bgm" src="./bgm/Fade-Alan Walker.mp3" data-v-b1d3339e></audio> <div class="reco-float-box" style="bottom:200px;z-index:999999;display:none;" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><img src="https://p2.music.126.net/qOOTIykbSLw9RHB0vI83GA==/737772302281958.jpg" data-v-b1d3339e></div> <div class="reco-bgm-box" style="left:10px;bottom:10px;z-index:999999;" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><div class="reco-bgm-cover" style="background-image:url(https://p2.music.126.net/qOOTIykbSLw9RHB0vI83GA==/737772302281958.jpg);" data-v-b1d3339e><div class="mini-operation" style="display:none;" data-v-b1d3339e><i class="reco-bgm reco-bgm-pause" style="display:none;" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-play" style="display:none;" data-v-b1d3339e></i></div> <div class="falut-message" style="display:none;" data-v-b1d3339e>
+          播放失败
+        </div></div> <div class="reco-bgm-info" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><div class="info-box" data-v-b1d3339e><i class="reco-bgm reco-bgm-music music" data-v-b1d3339e></i>Fade</div> <div class="info-box" data-v-b1d3339e><i class="reco-bgm reco-bgm-artist" data-v-b1d3339e></i>Alan Walker</div> <div class="reco-bgm-progress" data-v-b1d3339e><div class="progress-bar" data-v-b1d3339e><div class="bar" data-v-b1d3339e></div></div></div> <div class="reco-bgm-operation" data-v-b1d3339e><i class="reco-bgm reco-bgm-last last" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-pause pause" style="display:none;" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-play play" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-next next" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-volume1 volume" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-mute mute" style="display:none;" data-v-b1d3339e></i> <div class="volume-bar" data-v-b1d3339e><div class="bar" data-v-b1d3339e></div></div></div></div> <div class="reco-bgm-left-box" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><i class="reco-bgm reco-bgm-left" data-v-b1d3339e></i></div></div></div><!----></div></div>
+    <script src="/assets/js/app.fbba6942.js" defer></script><script src="/assets/js/4.5c1b3a6f.js" defer></script><script src="/assets/js/1.dee12e52.js" defer></script><script src="/assets/js/9.addcb2d4.js" defer></script><script src="/assets/js/14.39e712f1.js" defer></script>
+  </body>
+</html>

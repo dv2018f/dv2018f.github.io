@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Java SPI机制和spring中运用 | 乘风破浪会有时</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css">
+    <script charset="utf-8" src="/js/custom.js"></script>
+    <meta name="description" content="路漫漫其修远兮 吾将上下而求索">
+    <meta name="keywords" content="dvsc developer,vuepress,自建博客,dv">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="robots" content="all">
+    <meta name="author" content="dvsc">
+    
+    <link rel="preload" href="/assets/css/0.styles.bfd62ff8.css" as="style"><link rel="preload" href="/assets/js/app.fbba6942.js" as="script"><link rel="preload" href="/assets/js/4.5c1b3a6f.js" as="script"><link rel="preload" href="/assets/js/1.dee12e52.js" as="script"><link rel="preload" href="/assets/js/13.be2e261a.js" as="script"><link rel="preload" href="/assets/js/14.39e712f1.js" as="script"><link rel="prefetch" href="/assets/js/10.7cb23ded.js"><link rel="prefetch" href="/assets/js/11.3c0e6cff.js"><link rel="prefetch" href="/assets/js/12.9a98cc53.js"><link rel="prefetch" href="/assets/js/15.6f34a449.js"><link rel="prefetch" href="/assets/js/16.5a265be9.js"><link rel="prefetch" href="/assets/js/17.5e66ecff.js"><link rel="prefetch" href="/assets/js/18.295df760.js"><link rel="prefetch" href="/assets/js/19.9901ba74.js"><link rel="prefetch" href="/assets/js/20.850e9636.js"><link rel="prefetch" href="/assets/js/21.6366be06.js"><link rel="prefetch" href="/assets/js/22.35a889d2.js"><link rel="prefetch" href="/assets/js/5.21d8025e.js"><link rel="prefetch" href="/assets/js/6.04490967.js"><link rel="prefetch" href="/assets/js/7.d2977ab4.js"><link rel="prefetch" href="/assets/js/8.7985293c.js"><link rel="prefetch" href="/assets/js/9.addcb2d4.js"><link rel="prefetch" href="/assets/js/vendors~flowchart.529f4ac8.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.bfd62ff8.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div><div class="theme-container" data-v-4698c43e><div data-v-4698c43e><div id="loader-wrapper" class="loading-wrapper" data-v-1c4f0192 data-v-4698c43e data-v-4698c43e><div class="loader-main" data-v-1c4f0192><div data-v-1c4f0192></div><div data-v-1c4f0192></div><div data-v-1c4f0192></div><div data-v-1c4f0192></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-6cbeab0a data-v-4698c43e data-v-4698c43e><h3 class="title" style="display:none;" data-v-6cbeab0a data-v-6cbeab0a>乘风破浪会有时</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-6cbeab0a data-v-6cbeab0a><input type="password" value="" data-v-6cbeab0a> <span data-v-6cbeab0a>Konck! Knock!</span> <button data-v-6cbeab0a>OK</button></label> <div class="footer" style="display:none;" data-v-6cbeab0a data-v-6cbeab0a><span data-v-6cbeab0a><i class="iconfont reco-theme" data-v-6cbeab0a></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-6cbeab0a>vuePress-theme-reco</a></span> <span data-v-6cbeab0a><i class="iconfont reco-copyright" data-v-6cbeab0a></i> <a data-v-6cbeab0a><span data-v-6cbeab0a>z利威</span>
+            
+          <span data-v-6cbeab0a>2018 - </span>
+          2023
+        </a></span></div></div> <div class="hide" data-v-4698c43e><header class="navbar" data-v-4698c43e><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">乘风破浪会有时</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/guide/" class="nav-link"><i class="iconfont reco-eye"></i>
+  本站指南
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-api"></i>
+      技术分享
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Java</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/技术文章/java/javase.html" class="nav-link"><i class="iconfont undefined"></i>
+  JavaSE
+</a></li><li class="dropdown-subitem"><a href="/技术文章/java高级/javaee.html" class="nav-link"><i class="iconfont undefined"></i>
+  JavaEE
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-faq"></i>
+      生活分享
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/生活分享/life.html" class="nav-link"><i class="iconfont undefined"></i>
+  生活分享
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-work"></i>
+      工作随笔
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/工作随笔/drools.html" class="nav-link"><i class="iconfont undefined"></i>
+  Drools 规则引擎
+</a></li><li class="dropdown-item"><!----> <a href="/工作随笔/ChatGPT_Bito.html" class="nav-link"><i class="iconfont undefined"></i>
+  ChatGPT4 Bito- IDEA  辅助编程案例
+</a></li><li class="dropdown-item"><!----> <a href="/工作随笔/workreport.html" class="nav-link"><i class="iconfont undefined"></i>
+  工作报告性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/工作随笔/SPI.html" class="nav-link"><i class="iconfont undefined"></i>
+  Java SPI机制和spring中运用
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-blog"></i>
+      博客
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.jianshu.com/u/a2f1fd06b158" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-blog"></i>
+  腾讯
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://www.jianshu.com/u/a2f1fd06b158" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-bilibili"></i>
+  简书
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://www.jianshu.com/u/a2f1fd06b158" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-blog"></i>
+  z利威
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-4698c43e></div> <aside class="sidebar" data-v-4698c43e><div class="personal-info-wrapper" data-v-6c8ffc9c><img src="/tx.jpg" alt="author-avatar" class="personal-img" data-v-6c8ffc9c> <h3 class="name" data-v-6c8ffc9c>
+    z利威
+  </h3> <div class="num" data-v-6c8ffc9c><div data-v-6c8ffc9c><h3 data-v-6c8ffc9c>9</h3> <h6 data-v-6c8ffc9c>文章</h6></div> <div data-v-6c8ffc9c><h3 data-v-6c8ffc9c>15</h3> <h6 data-v-6c8ffc9c>标签</h6></div></div> <hr data-v-6c8ffc9c></div> <nav class="nav-links"><div class="nav-item"><a href="/guide/" class="nav-link"><i class="iconfont reco-eye"></i>
+  本站指南
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-api"></i>
+      技术分享
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>Java</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/技术文章/java/javase.html" class="nav-link"><i class="iconfont undefined"></i>
+  JavaSE
+</a></li><li class="dropdown-subitem"><a href="/技术文章/java高级/javaee.html" class="nav-link"><i class="iconfont undefined"></i>
+  JavaEE
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-faq"></i>
+      生活分享
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/生活分享/life.html" class="nav-link"><i class="iconfont undefined"></i>
+  生活分享
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-work"></i>
+      工作随笔
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/工作随笔/drools.html" class="nav-link"><i class="iconfont undefined"></i>
+  Drools 规则引擎
+</a></li><li class="dropdown-item"><!----> <a href="/工作随笔/ChatGPT_Bito.html" class="nav-link"><i class="iconfont undefined"></i>
+  ChatGPT4 Bito- IDEA  辅助编程案例
+</a></li><li class="dropdown-item"><!----> <a href="/工作随笔/workreport.html" class="nav-link"><i class="iconfont undefined"></i>
+  工作报告性能优化
+</a></li><li class="dropdown-item"><!----> <a href="/工作随笔/SPI.html" class="nav-link"><i class="iconfont undefined"></i>
+  Java SPI机制和spring中运用
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-blog"></i>
+      博客
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="https://www.jianshu.com/u/a2f1fd06b158" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-blog"></i>
+  腾讯
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://www.jianshu.com/u/a2f1fd06b158" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-bilibili"></i>
+  简书
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://www.jianshu.com/u/a2f1fd06b158" target="_blank" rel="noopener noreferrer" class="nav-link external"><i class="iconfont reco-blog"></i>
+  z利威
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></div></div><div class="nav-item"><a href="/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  时间轴
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>工作随笔</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/工作随笔/ChatGPT_Bito.html" class="sidebar-link">ChatGPT4 Bito- IDEA  辅助编程案例</a></li><li><a href="/工作随笔/SPI.html" class="active sidebar-link">Java SPI机制和spring中运用</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/工作随笔/SPI.html#一、spi是个什么鬼" class="sidebar-link">一、SPI是个什么鬼</a></li><li class="sidebar-sub-header"><a href="/工作随笔/SPI.html#二、jdk中spi实现" class="sidebar-link">二、JDK中SPI实现</a></li><li class="sidebar-sub-header"><a href="/工作随笔/SPI.html#三、spring中spi实现" class="sidebar-link">三、Spring中SPI实现</a></li><li class="sidebar-sub-header"><a href="/工作随笔/SPI.html#四、总结" class="sidebar-link">四、总结</a></li></ul></li><li><a href="/工作随笔/drools.html" class="sidebar-link">Drools 规则引擎</a></li><li><a href="/工作随笔/workReport.html" class="sidebar-link">工作报告性能优化</a></li></ul></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-6cbeab0a data-v-4698c43e><h3 class="title" style="display:none;" data-v-6cbeab0a data-v-6cbeab0a>Java SPI机制和spring中运用</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-6cbeab0a data-v-6cbeab0a><input type="password" value="" data-v-6cbeab0a> <span data-v-6cbeab0a>Konck! Knock!</span> <button data-v-6cbeab0a>OK</button></label> <div class="footer" style="display:none;" data-v-6cbeab0a data-v-6cbeab0a><span data-v-6cbeab0a><i class="iconfont reco-theme" data-v-6cbeab0a></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-6cbeab0a>vuePress-theme-reco</a></span> <span data-v-6cbeab0a><i class="iconfont reco-copyright" data-v-6cbeab0a></i> <a data-v-6cbeab0a><span data-v-6cbeab0a>z利威</span>
+            
+          <span data-v-6cbeab0a>2018 - </span>
+          2023
+        </a></span></div></div> <div data-v-4698c43e><main class="page"><!----> <div class="page-title" style="display:none;"><h1>Java SPI机制和spring中运用</h1> <hr> <div data-v-484a899e><i class="iconfont reco-account" data-v-484a899e><span data-v-484a899e>z利威</span></i> <i class="iconfont reco-date" data-v-484a899e><span data-v-484a899e>2022-06-23</span></i> <!----> <i class="iconfont reco-tag tags" data-v-484a899e><span class="tag-item" data-v-484a899e>
+      工作
+    </span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><div class="custom-block danger"><p class="custom-block-title">概要</p> <p>SPI全称叫做Service Provider Interface，服务提供接口。它是Java内置的一种服务提供发现机制，可以用来提高框架的扩展性。</p></div> <h2 id="一、spi是个什么鬼"><a href="#一、spi是个什么鬼" class="header-anchor">#</a> <strong>一、SPI</strong>是个什么鬼</h2> <h3 id="_1-简介"><a href="#_1-简介" class="header-anchor">#</a> <strong>1 简介</strong></h3> <p>SPI全称叫做Service Provider Interface，服务提供接口。它是Java内置的一种服务提供发现机制，可以用来提高框架的扩展性。</p> <p>怎么理解呢？简单理解就是在上层模块或者核心接口层中定义一个标准的服务接口，它没有实现，那谁来实现呢？有下层模块或者各个不同的服务提供方去实现这样的标准接口，如下图所示：</p> <p><img src="/assets/img/spi01.5865bcd8.png" alt="spi01"></p> <p><strong>区别于<strong><strong>API</strong></strong>的概念：</strong></p> <p>API （Application Programming Interface）在大多数情况下，都是实现方制定接口并完成对接口的实现，调用方仅仅依赖接口调用，且无权选择不同实现。 从使用人员上来说，API 直接被应用开发人员使用。</p> <p>SPI （Service Provider Interface）是调用方来制定接口规范，提供给外部来实现，调用方在调用时则选择自己需要的外部实现。 从使用人员上来说，SPI 被框架扩展人员使用。</p> <h3 id="_2-应用案例"><a href="#_2-应用案例" class="header-anchor">#</a> <strong>2 应用案例</strong></h3> <p>如果还是没不理解的话，我这边举个非常常见的应用例子帮助大家理解。</p> <p>我们都有用过jdbc连接数据吧，连接数据库需要驱动包，不同的数据库厂商，比如mysql或者oracle是不一样的。我们总不能在jdk中定义囊括所有的厂商实现吧，如配置是mysql，调用mysql的驱动，是oracle,调用oracle驱动，还要把各个厂商的驱动都内置进去，是不是非常ugly, 这时候我们的SPI机制派上用场了。</p> <ol><li><strong>定义内置服务接口</strong></li></ol> <p>JDK中定义了接口java.sql.Driver，并没有具体的实现，具体的实现都是由不同厂商来提供的。</p> <ol><li><strong>不同产商各自实现内置服务接口</strong></li></ol> <ul><li>mysql厂商实现</li></ul> <p>在mysql厂商提供的jar包<code>mysql-connector-java-6.0.6.jar</code>中，可以找到<code>META-INF/services</code>目录，该目录下会有一个名字为<code>java.sql.Driver</code>的文件，文件内容是<code>com.mysql.cj.jdbc.Driver</code>，这里面的内容就是针对Java中定义的接口的实现。</p> <ul><li>postgresql厂商实现</li></ul> <p>在postgresql的jar包<code>postgresql-42.0.0.jar</code>中，也可以找到同样的配置文件，文件内容是<code>org.postgresql.Driver</code>，这是postgresql对Java的<code>java.sql.Driver</code>的实现。</p> <p>等等，其他厂商类似。</p> <ol><li><strong>使用实现</strong></li></ol> <p>调用下面的方法，就会将对应的实现驱动通过SPI机制加载进来。</p> <div class="language-Plaintext line-numbers-mode"><pre class="language-plaintext"><code>Connection conn = DriverManager.getConnection(url,username,password);
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><p>它是如何做到的呢？我们看下<code>DriverManager</code>的源码：</p> <div class="language-Plaintext line-numbers-mode"><pre class="language-plaintext"><code>public class DriverManager {
+    ......
+    /**
+     * Load the initial JDBC drivers by checking the System property
+     * jdbc.properties and then use the {@code ServiceLoader} mechanism
+     */
+    static {
+        loadInitialDrivers();
+        println(&quot;JDBC DriverManager initialized&quot;);
+    }
+    .....
+
+        private static void loadInitialDrivers() {
+        String drivers;
+        .....
+    
+        AccessController.doPrivileged(new PrivilegedAction&lt;Void&gt;() {
+            public Void run() {
+                            //使用SPI的ServiceLoader来加载接口的实现
+                ServiceLoader&lt;Driver&gt; loadedDrivers = ServiceLoader.load(Driver.class);
+                Iterator&lt;Driver&gt; driversIterator = loadedDrivers.iterator();
+                try{
+                    while(driversIterator.hasNext()) {
+                        driversIterator.next();
+                    }
+                } catch(Throwable t) {
+                // Do nothing
+                }
+                return null;
+            }
+        });
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br></div></div><ul><li><code>DriverManager</code>类加载会先调用静态代码块中的<code>loadInitialDrivers()</code>方法。</li> <li><code>loadInitialDrivers()</code>方法中的<code>ServiceLoader.load()</code>方法就是jdk中对spi的实现，具体源码解读查看下一个章节。</li></ul> <p><strong>小结：</strong></p> <p>此外还有一些其他使用SPI的例子，如下：</p> <ul><li>日志门面接口实现类加载，SLF4J加载不同提供商的日志实现类</li> <li>Spring中大量使用了SPI,比如：对servlet3.0规范对ServletContainerInitializer的实现、自动类型转换Type Conversion SPI(Converter SPI、Formatter SPI)等</li></ul> <h3 id="_3-核心思想"><a href="#_3-核心思想" class="header-anchor">#</a> <strong>3 核心思想</strong></h3> <p>通过上面的介绍和例子的讲解，我们可以知道SPI核心的思想就是<strong>解耦</strong>。SPI机制将服务的具体实现转移到了程序外，为框架的扩展和解耦提供了极大的便利。</p> <h2 id="二、jdk中spi实现"><a href="#二、jdk中spi实现" class="header-anchor">#</a> 二、JDK中SPI实现</h2> <h3 id="_1-使用"><a href="#_1-使用" class="header-anchor">#</a> <strong>1 使用</strong></h3> <p>要使用jdk的SPI需要，需要遵循如下约定：</p> <ol><li>当服务提供者提供了接口的一种具体实现后，在jar包的META-INF/services目录下创建一个以“接口全限定名”为命名的文件，内容为实现类的全限定名；</li> <li>接口实现类所在的jar包放在主程序的classpath中；</li> <li>主程序通过java.util.ServiceLoder动态装载实现模块，它通过扫描META-INF/services目录下的配置文件找到实现类的全限定名，把类加载到JVM；</li> <li>SPI的实现类必须携带一个不带参数的构造方法；</li></ol> <p><strong>直接上例子：</strong></p> <ol><li>定义一个服务接口</li></ol> <div class="language-Plaintext line-numbers-mode"><pre class="language-plaintext"><code>public interface Phone {
+    String getSystemInfo();
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><ol><li>定义服务接口的实现</li></ol> <div class="language-Plaintext line-numbers-mode"><pre class="language-plaintext"><code>public class Huawei implements Phone {
+    @Override
+    public String getSystemInfo() {
+        return &quot;Hong Meng&quot;;
+    }
+}
+
+public class IPhone implements Phone {
+    @Override
+    public String getSystemInfo() {
+        return  &quot;iOS&quot;;
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><ol><li>添加配置</li></ol> <ul><li>目录名必须是 META-INF/services</li> <li>文件名是接口的全路径</li></ul> <p><img src="SPI.assets/spi02.PNG" alt="spi02"></p> <ol><li>使用</li></ol> <ul><li>通过<code>ServiceLoader</code> 加载实现类并调用服务</li></ul> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token annotation punctuation">@Test</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">test1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 调用ServiceLoader的load方法</span>
+    <span class="token class-name">ServiceLoader</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Phone</span><span class="token punctuation">&gt;</span></span> phoneServiceLoader <span class="token operator">=</span> <span class="token class-name">ServiceLoader</span><span class="token punctuation">.</span><span class="token function">load</span><span class="token punctuation">(</span><span class="token class-name">Phone</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token class-name">Iterator</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Phone</span><span class="token punctuation">&gt;</span></span> iterator <span class="token operator">=</span> phoneServiceLoader<span class="token punctuation">.</span><span class="token function">iterator</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>iterator<span class="token punctuation">.</span><span class="token function">hasNext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Phone</span> phone <span class="token operator">=</span> iterator<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;phone ....&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>phone <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">String</span> systemInfo <span class="token operator">=</span> phone<span class="token punctuation">.</span><span class="token function">getSystemInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>systemInfo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br></div></div><p><img src="/assets/img/spi03.7ef86f63.png" alt="spi03"></p> <h3 id="_2-源码实现"><a href="#_2-源码实现" class="header-anchor">#</a> <strong>2 源码实现</strong></h3> <p>jdk中的SPI机制是通过<code>ServiceLoader</code>类实现的，通过调用<code>load()</code>方法实现对服务提供接口的查找，最后遍历来逐个访问服务提供接口的实现类。</p> <div class="language-Plaintext line-numbers-mode"><pre class="language-plaintext"><code>public final class ServiceLoader&lt;S&gt; implements Iterable&lt;S&gt;{
+    // 服务提供接口对应文件放置目录
+    private static final String PREFIX = &quot;META-INF/services/&quot;;
+ 
+    // The class or interface representing the service being loaded
+    private final Class&lt;S&gt; service;
+ 
+    // 类加载器
+    private final ClassLoader loader;
+ 
+    // The access control context taken when the ServiceLoader is created
+    private final AccessControlContext acc;
+ 
+    // 按照初始化顺序缓存服务提供接口实例
+    private LinkedHashMap&lt;String,S&gt; providers = new LinkedHashMap&lt;&gt;();
+ 
+    // 内部类，实现了Iterator接口
+    private LazyIterator lookupIterator;
+
+
+private class LazyIterator
+        implements Iterator&lt;S&gt;
+    {
+
+        ... 
+        private boolean hasNextService() {
+            if (nextName != null) {
+                return true;
+            }
+            if (configs == null) {
+                try {
+                    // 获取全路径地址
+                    String fullName = PREFIX + service.getName();
+                    if (loader == null)
+                        configs = ClassLoader.getSystemResources(fullName);
+                    else
+                        // 获取文件的内容
+                        configs = loader.getResources(fullName);
+                } catch (IOException x) {
+                    fail(service, &quot;Error locating configuration files&quot;, x);
+                }
+            }
+            while ((pending == null) || !pending.hasNext()) {
+                if (!configs.hasMoreElements()) {
+                    return false;
+                }
+                pending = parse(service, configs.nextElement());
+            }
+            nextName = pending.next();
+            return true;
+        }
+
+        private S nextService() {
+            if (!hasNextService())
+                throw new NoSuchElementException();
+            String cn = nextName;
+            nextName = null;
+            Class&lt;?&gt; c = null;
+            try {
+                // 初始化
+                c = Class.forName(cn, false, loader);
+            } catch (ClassNotFoundException x) {
+                fail(service,
+                     &quot;Provider &quot; + cn + &quot; not found&quot;);
+            }
+            if (!service.isAssignableFrom(c)) {
+                fail(service,
+                     &quot;Provider &quot; + cn  + &quot; not a subtype&quot;);
+            }
+            try {
+                S p = service.cast(c.newInstance());
+                providers.put(cn, p);
+                return p;
+            } catch (Throwable x) {
+                fail(service,
+                     &quot;Provider &quot; + cn + &quot; could not be instantiated&quot;,
+                     x);
+            }
+            throw new Error();          // This cannot happen
+        } 
+        .... 
+
+    }
+
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br></div></div><ul><li><code>ServiceLoader</code>实现了<code>Iterable</code>接口，所以它有迭代器的属性，这里主要都是实现了迭代器的<code>hasNext</code>和<code>next</code>方法。这里主要都是调用的<code>lookupIterator</code>的相应<code>hasNext</code>和<code>next</code>方法。</li> <li><code>LazyIterator</code>中的<code>hasNext</code>方法，静态变量PREFIX就是“<code>META-INF/services/</code>”目录，这也就是为什么需要在<code>classpath</code>下的<code>META-INF/services/</code>目录里创建一个以服务接口命名的文件。</li> <li>最后，通过反射方法<code>Class.forName()</code>加载类对象，并用newInstance方法将类实例化，并把实例化后的类缓存到<code>providers</code>对象中，然后返回实例对象。</li></ul> <h3 id="_3-小结"><a href="#_3-小结" class="header-anchor">#</a> <strong>3 小结</strong></h3> <p>JDK中的SPI机制思想非常好，很好的实现了解耦，但是也存在一些缺点：</p> <ul><li>不能按需加载，需要遍历所有的实现，并实例化，然后在循环中才能找到我们需要的实现。如果不想用某些实现类，或者某些类实例化很耗时，它也被载入并实例化了，这就造成了浪费。</li> <li>获取某个实现类的方式不够灵活，只能通过 Iterator 形式获取，不能根据某个参数来获取对应的实现类。</li> <li>多个并发多线程使用 <code>ServiceLoader</code> 类的实例是线程不安全的。</li> <li>实现类必须要提供无参的构造方法。</li></ul> <h2 id="三、spring中spi实现"><a href="#三、spring中spi实现" class="header-anchor">#</a> 三、Spring中SPI实现</h2> <p>因为jdk中的SPI实现存在着一些不完美的地方，所有Spring借鉴了jdk的思想，自己实现了一套SPI机制。</p> <h3 id="_1-使用-2"><a href="#_1-使用-2" class="header-anchor">#</a> <strong>1 使用</strong></h3> <ol><li>创建一个服务接口</li></ol> <div class="language-Plaintext line-numbers-mode"><pre class="language-plaintext"><code>public interface Phone {
+    String getSystemInfo();
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><ol><li>创建两个服务实现类</li></ol> <div class="language-Plaintext line-numbers-mode"><pre class="language-plaintext"><code>public class Huawei implements Phone {
+    @Override
+    public String getSystemInfo() {
+        return &quot;Hong Meng&quot;;
+    }
+}
+
+public class IPhone implements Phone {
+    @Override
+    public String getSystemInfo() {
+        return  &quot;iOS&quot;;
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div><ol><li>添加配置</li></ol> <ul><li>在项目META-INF/目录下创建spring.factories文件</li> <li>文件内容key是接口的全限定名，value是实现类</li></ul> <p><img src="/assets/img/spi04.8d557ea3.png" alt="spi04"></p> <div class="language-Plaintext line-numbers-mode"><pre class="language-plaintext"><code>#key是接口的全限定名，value是接口的实现类
+com.alvin.error.spi.Phone=com.alvin.error.spi.Huawei,com.alvin.error.spi.IPhone
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><ol><li>使用</li></ol> <ul><li>调用<code>SpringFactoriesLoader.loadFactories</code>方法加载</li></ul> <div class="language-Plaintext line-numbers-mode"><pre class="language-plaintext"><code>@Test
+public void test() {
+    // 调用SpringFactoriesLoader.loadFactories方法加载Phone接口所有实现类的实例
+    List&lt;Phone&gt; spis = SpringFactoriesLoader.loadFactories(Phone.class,
+            Thread.currentThread().getContextClassLoader());
+
+    // 遍历Phone接口实现类实例
+    for (Phone spi : spis) {
+        System.out.println(spi.getSystemInfo());;
+    }
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><p><img src="/assets/img/spi05.9bdf8685.png" alt="spi05"></p> <h3 id="_2-源码实现-2"><a href="#_2-源码实现-2" class="header-anchor">#</a> <strong>2 源码</strong>实现</h3> <p>Spring中使用<code>SpringFactoriesLoader</code>类实现了对SPI机制的支持。</p> <div class="language-Plaintext line-numbers-mode"><pre class="language-plaintext"><code>public static final String FACTORIES_RESOURCE_LOCATION = &quot;META-INF/spring.factories&quot;;
+// spring.factories文件的格式为：key=value1,value2,value3
+// 从所有的jar包中找到META-INF/spring.factories文件
+// 然后从文件中解析出key=factoryClass类名称的所有value值
+public static List&lt;String&gt; loadFactoryNames(Class&lt;?&gt; factoryClass, ClassLoader classLoader) {
+    String factoryClassName = factoryClass.getName();
+    // 取得资源文件的URL
+    Enumeration&lt;URL&gt; urls = (classLoader != null ? classLoader.getResources(FACTORIES_RESOURCE_LOCATION) : ClassLoader.getSystemResources(FACTORIES_RESOURCE_LOCATION));
+    List&lt;String&gt; result = new ArrayList&lt;String&gt;();
+    // 遍历所有的URL
+    while (urls.hasMoreElements()) {
+        URL url = urls.nextElement();
+        // 根据资源文件URL解析properties文件，得到对应的一组@Configuration类
+        Properties properties = PropertiesLoaderUtils.loadProperties(new UrlResource(url));
+        String factoryClassNames = properties.getProperty(factoryClassName);
+        // 组装数据，并返回
+        result.addAll(Arrays.asList(StringUtils.commaDelimitedListToStringArray(factoryClassNames)));
+    }
+    return result;
+}
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br></div></div><ul><li>从classpath下的每个Jar包中搜寻所有<code>META-INF/spring.factories</code>配置文件</li> <li>然后将解析properties文件，找到指定名称的配置后返回。需要注意的是，其实这里不仅仅是会去ClassPath路径下查找，会扫描所有路径下的Jar包，只不过这个文件只会在classpath下的jar包中</li> <li>最后将扫描得到的类通过反射实例化</li></ul> <h2 id="四、总结"><a href="#四、总结" class="header-anchor">#</a> <strong>四、总结</strong></h2> <p>SPI技术将服务接口与服务实现分离以达到解耦，极大的提升程序的可扩展性。本文主要带大家理解了什么是SPI，然后分析了JDK和Spring中对SPI机制的支持。</p></div> <footer class="page-edit" style="display:none;"><!----> <!----></footer> <!----> <!----></main> <!----> <div class="comments-wrapper" data-v-4698c43e><!----></div></div></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-44bd5a18 data-v-44bd5a18><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-44bd5a18><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-44bd5a18></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-44bd5a18></path></svg></div><!----><div></div><!----><div class="reco-bgm-panel" data-v-b1d3339e><audio id="bgm" src="./bgm/Fade-Alan Walker.mp3" data-v-b1d3339e></audio> <div class="reco-float-box" style="bottom:200px;z-index:999999;display:none;" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><img src="https://p2.music.126.net/qOOTIykbSLw9RHB0vI83GA==/737772302281958.jpg" data-v-b1d3339e></div> <div class="reco-bgm-box" style="left:10px;bottom:10px;z-index:999999;" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><div class="reco-bgm-cover" style="background-image:url(https://p2.music.126.net/qOOTIykbSLw9RHB0vI83GA==/737772302281958.jpg);" data-v-b1d3339e><div class="mini-operation" style="display:none;" data-v-b1d3339e><i class="reco-bgm reco-bgm-pause" style="display:none;" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-play" style="display:none;" data-v-b1d3339e></i></div> <div class="falut-message" style="display:none;" data-v-b1d3339e>
+          播放失败
+        </div></div> <div class="reco-bgm-info" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><div class="info-box" data-v-b1d3339e><i class="reco-bgm reco-bgm-music music" data-v-b1d3339e></i>Fade</div> <div class="info-box" data-v-b1d3339e><i class="reco-bgm reco-bgm-artist" data-v-b1d3339e></i>Alan Walker</div> <div class="reco-bgm-progress" data-v-b1d3339e><div class="progress-bar" data-v-b1d3339e><div class="bar" data-v-b1d3339e></div></div></div> <div class="reco-bgm-operation" data-v-b1d3339e><i class="reco-bgm reco-bgm-last last" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-pause pause" style="display:none;" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-play play" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-next next" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-volume1 volume" data-v-b1d3339e></i> <i class="reco-bgm reco-bgm-mute mute" style="display:none;" data-v-b1d3339e></i> <div class="volume-bar" data-v-b1d3339e><div class="bar" data-v-b1d3339e></div></div></div></div> <div class="reco-bgm-left-box" data-v-b1d3339e data-v-41bcba48 data-v-b1d3339e><i class="reco-bgm reco-bgm-left" data-v-b1d3339e></i></div></div></div><!----></div></div>
+    <script src="/assets/js/app.fbba6942.js" defer></script><script src="/assets/js/4.5c1b3a6f.js" defer></script><script src="/assets/js/1.dee12e52.js" defer></script><script src="/assets/js/13.be2e261a.js" defer></script><script src="/assets/js/14.39e712f1.js" defer></script>
+  </body>
+</html>
